@@ -1,0 +1,351 @@
+:root {
+    --primary-color: #0071C3;
+    --secondary-color: #2980b9;
+    --background-color: #ecf0f1;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --border-color: #e0e0e0;
+    --hover-color: #e8f4f8;
+    --sidebar-width: 250px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.navbar-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.navbar-menu a:hover {
+    background-color: #005091;
+    transform: translateY(-2px);
+}
+
+.container {
+    display: flex;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.sidebar-menu a {
+    display: block;
+    color: var(--text-color);
+    padding: 12px 15px;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.sidebar-menu a:hover {
+    background-color: var(--hover-color);
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.sidebar-menu i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.content h1 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2em;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+h1, h2 {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+select, button {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Prompt', sans-serif;
+}
+
+select {
+    background-color: #f8f9fa;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 600;
+    border: none;
+}
+
+button:hover {
+    background-color: #005194;
+    transform: translateY(-2px);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.total {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    text-align: right;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.print-button {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.print-button button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+/* ซ่อนส่วนที่ไม่ต้องการแสดงในการพิมพ์ */
+@media print {
+    body * {
+        visibility: hidden; /* ซ่อนทุกอย่าง */
+    }
+
+    .printable {
+        visibility: visible; /* แสดงเฉพาะส่วนที่ต้องการพิมพ์ */
+    }
+
+    .printable, .printable * {
+        visibility: visible; /* ทำให้ทุกอย่างในส่วนที่ต้องการพิมพ์มองเห็นได้ */
+    }
+
+    .printable {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar, .sidebar, .print-button, form {
+        display: none; /* ซ่อน Navbar, Sidebar, ปุ่มพิมพ์, และฟอร์ม */
+    }
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+    form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.table {
+    color: var(--text-color);
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.table thead th {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 12px;
+    text-align: left;
+}
+
+.table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.table td, .table th {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+.table caption {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: var(--primary-color);
+    text-align: left;
+}
+
+/* Adjustments for better responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+        position: fixed;
+        height: 100%;
+        z-index: 999;
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .nav {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .nav a {
+        padding: 10px 20px;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .nav a:hover {
+        background-color: var(--secondary-color);
+    }
+}
+
+.btn-warning {
+    background-color: #ffc107; /* Yellow color */
+    border: none;
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Red color */
+    border: none;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.btn-action {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+    text-align: center;
+    display: inline-block;
+}

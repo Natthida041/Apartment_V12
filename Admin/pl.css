@@ -1,0 +1,116 @@
+/* General styles */
+body {
+    font-family: 'Prompt', sans-serif;
+    font-size: 16px; /* ปรับขนาดฟอนต์หลักของเอกสาร */
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 30px;
+    background-color: #f4f7f9;
+}
+
+.receipt {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 1.5em; /* ขนาดฟอนต์ของหัวเรื่อง */
+    margin-top: 0;
+    color: #333;
+}
+
+/* Page break styles for printing */
+@media print {
+    body {
+        font-size: 12px; /* ปรับขนาดฟอนต์สำหรับการพิมพ์ */
+    }
+
+    .page-break {
+        page-break-before: always;
+        clear: both;
+    }
+
+    .print-button {
+        display: none;
+    }
+
+    /* Ensure no extra space before the break */
+    .receipt:last-of-type {
+        margin-bottom: 0;
+    }
+
+    /* Remove background color and box shadow for printing */
+    .receipt {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table, th, td {
+    border: 1px solid #e1e5e9;
+}
+
+th, td {
+    padding: 6px; /* ลด padding ให้เหมาะสม */
+    text-align: left;
+    color: #333;
+    font-size: 0.9em; /* ขนาดฟอนต์ของตาราง */
+}
+
+th {
+    background-color: #0071C3;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+.total {
+    font-size: 1em; /* ขนาดฟอนต์ของยอดรวม */
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+    color: #0071C3;
+}
+
+/* Button styles */
+.print-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.print-button button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #0071C3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.print-button button:hover {
+    background-color: #005a9e;
+}
